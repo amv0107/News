@@ -2,6 +2,8 @@ package com.amv0107.news
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.core.content.ContextCompat
 import com.amv0107.common_utils.Activities
 import com.amv0107.common_utils.Navigator
@@ -13,10 +15,10 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity() {
 
     @Inject
-    lateinit var provider : Navigator.Provider
+    lateinit var provider: Navigator.Provider
 
-    private var _binding : ActivityMainBinding? = null
-    private val binding : ActivityMainBinding
+    private var _binding: ActivityMainBinding? = null
+    private val binding: ActivityMainBinding
         get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,6 +27,10 @@ class MainActivity : AppCompatActivity() {
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        provider.getActivities(Activities.NewsActivity).navigate(this)
+        Handler(Looper.getMainLooper()).postDelayed({
+            provider.getActivities(Activities.NewsActivity).navigate(this)
+            finish()
+        }, 1500)
+
     }
 }

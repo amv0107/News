@@ -2,6 +2,7 @@ package com.amv0107.new_data.di
 
 import com.amv0107.new_data.network.NewsApiService
 import com.amv0107.new_data.repository.NewsRepoImpl
+import com.amv0107.new_data.room.NewsDAO
 import com.amv0107.news_domain.repository.NewsRepository
 import dagger.Module
 import dagger.Provides
@@ -19,7 +20,7 @@ object NewsDataModule {
     }
 
     @Provides
-    fun provideNewsRepository(newsApiService: NewsApiService): NewsRepository{
-        return NewsRepoImpl(newsApiService)
+    fun provideNewsRepository(newsApiService: NewsApiService, newsDAO: NewsDAO): NewsRepository{
+        return NewsRepoImpl(newsApiService, newsDAO)
     }
 }

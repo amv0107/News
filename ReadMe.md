@@ -5,7 +5,13 @@
 ### Stack
  * Kotlin
  * Clean Architecture
- * Multi-Module
- * Room
  * MVVM
- * 
+ * Multi-Module
+ * Retrofit
+ * Coroutines
+ * Glide
+ * ViewModelDelegate
+ * DaggerHilt
+ * Room
+ * SwipeRefresh
+ * LottieAnimation
